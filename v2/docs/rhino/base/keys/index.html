@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-rhino/base/keys" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Keys 按键模拟 | Autox.js</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://your-docusaurus-site.example.com/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://your-docusaurus-site.example.com/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://your-docusaurus-site.example.com/docs/rhino/base/keys"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Keys 按键模拟 | Autox.js"><meta data-rh="true" name="description" content="按键模拟部分提供了一些模拟物理按键的全局函数，包括 Home、音量键、照相键等，有的函数依赖于无障碍服务，有的函数依赖于 root 权限。"><meta data-rh="true" property="og:description" content="按键模拟部分提供了一些模拟物理按键的全局函数，包括 Home、音量键、照相键等，有的函数依赖于无障碍服务，有的函数依赖于 root 权限。"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://your-docusaurus-site.example.com/docs/rhino/base/keys"><link data-rh="true" rel="alternate" href="https://your-docusaurus-site.example.com/docs/rhino/base/keys" hreflang="zh"><link data-rh="true" rel="alternate" href="https://your-docusaurus-site.example.com/docs/rhino/base/keys" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Autox.js RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Autox.js Atom Feed"><link rel="stylesheet" href="/assets/css/styles.9e937660.css">
+<script src="/assets/js/runtime~main.ecd6d113.js" defer="defer"></script>
+<script src="/assets/js/main.dbd42034.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="navbar navbar--fixed-top navbarHideable_m1mJ"><div class="navbar__inner"><div class="navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/images/logo.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/images/logo.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Autox.js</b></a><a class="navbar__item navbar__link" href="/docs/overview">综述</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/rhino/documentation">第一代api文档(v6)</a><a class="navbar__item navbar__link" href="/docs/nodejs/intro">第二代api文档(v7)</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/aiselp/AutoX/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="切换浅色/暗黑模式（当前为浅色模式）" aria-label="切换浅色/暗黑模式（当前为浅色模式）" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd sidebarWithHideableNavbar_wUlq"><a tabindex="-1" class="sidebarLogo_isFc" href="/"><img src="/images/logo.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/images/logo.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"><b>Autox.js</b></a><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/rhino/documentation">关于本文档</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/rhino/vscode">VS CODE 集成</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/rhino/base/app">基础</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/base/app">APP 应用</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/base/console">Console 控制台</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/base/coordinatesBasedAutomation">基于坐标的触摸模拟</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/base/device">Device 设备</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/base/dialogs">Dialogs 对话框</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/base/files">Files 文件系统</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/base/globals">全局变量与函数</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/base/http">HTTP 网络请求</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/rhino/base/keys">Keys 按键模拟</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/base/mqtt">MQTT</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/base/storages">Storages 本地储存</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/base/timers">Timers 定时器</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/base/ui">UI 用户界面</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/base/websocket">websocket</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/base/widgetsBasedAutomation">基于控件的操作</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/docs/rhino/advanced/axios">高级</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/axios">axios</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/base64">Base64 编码</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/canvas">Canvas 画布</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/continuation">协程</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/crypto">crypto 消息处理（加密，摘要）</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/engines">Engines 引擎</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/events">Events 事件与监听</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/floaty">Floaty 悬浮窗</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/images">Images 图片与颜色</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/keyboard">keyboard 键盘输入</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/media">Media 多媒体</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/modules">module (模块)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/ocr">OCR 文字识别</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/sensors">Sensors 传感器</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/shell">shell 终端</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/shizuku">shizuku</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/threads">Threads 多线程</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/webViewAndHtml">WebView 与 HTML</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/rhino/advanced/zips">Zips 压缩与解压</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/rhino/npm/buffer">npm模块</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/rhino/qa">Q &amp; A 常见问题</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/rhino/workWithJava">与 Java 交互</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">基础</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Keys 按键模拟</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>Keys 按键模拟</h1></header>
+<p>按键模拟部分提供了一些模拟物理按键的全局函数，包括 Home、音量键、照相键等，有的函数依赖于无障碍服务，有的函数依赖于 root 权限。</p>
+<p>一般来说，以大写字母开头的函数都依赖于 root 权限。执行此类函数时，如果没有 root 权限，则函数执行后没有效果，并会在控制台输出一个警告。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="back">back()<a href="#back" class="hash-link" aria-label="back()的直接链接" title="back()的直接链接">​</a></h2>
+<ul>
+<li>返回 {boolean}</li>
+</ul>
+<p>模拟按下返回键。返回是否执行成功。
+此函数依赖于无障碍服务。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="home">home()<a href="#home" class="hash-link" aria-label="home()的直接链接" title="home()的直接链接">​</a></h2>
+<ul>
+<li>返回 {boolean}</li>
+</ul>
+<p>模拟按下 Home 键。返回是否执行成功。
+此函数依赖于无障碍服务。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="powerdialog">powerDialog()<a href="#powerdialog" class="hash-link" aria-label="powerDialog()的直接链接" title="powerDialog()的直接链接">​</a></h2>
+<ul>
+<li>返回 {boolean}</li>
+</ul>
+<p>弹出电源键菜单。返回是否执行成功。
+此函数依赖于无障碍服务。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="notifications">notifications()<a href="#notifications" class="hash-link" aria-label="notifications()的直接链接" title="notifications()的直接链接">​</a></h2>
+<ul>
+<li>返回 {boolean}</li>
+</ul>
+<p>拉出通知栏。返回是否执行成功。
+此函数依赖于无障碍服务。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="quicksettings">quickSettings()<a href="#quicksettings" class="hash-link" aria-label="quickSettings()的直接链接" title="quickSettings()的直接链接">​</a></h2>
+<ul>
+<li>返回 {boolean}</li>
+</ul>
+<p>显示快速设置(下拉通知栏到底)。返回是否执行成功。
+此函数依赖于无障碍服务。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="recents">recents()<a href="#recents" class="hash-link" aria-label="recents()的直接链接" title="recents()的直接链接">​</a></h2>
+<ul>
+<li>返回 {boolean}</li>
+</ul>
+<p>显示最近任务。返回是否执行成功。
+此函数依赖于无障碍服务。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="splitscreen">splitScreen()<a href="#splitscreen" class="hash-link" aria-label="splitScreen()的直接链接" title="splitScreen()的直接链接">​</a></h2>
+<ul>
+<li>返回 {boolean}</li>
+</ul>
+<p>分屏。返回是否执行成功。
+此函数依赖于无障碍服务, 并且需要系统自身功能的支持。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="takescreenshot">takeScreenshot()<a href="#takescreenshot" class="hash-link" aria-label="takeScreenshot()的直接链接" title="takeScreenshot()的直接链接">​</a></h2>
+<ul>
+<li>返回 {boolean}</li>
+<li> 需要 Android 9 以上</li>
+</ul>
+<p>模拟按键 <strong>电源键+音量下键</strong> 截屏
+不返回截屏得到的图片对象，只返回是否截图成功，图片保存到系统相册</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="lockscreen">lockScreen()<a href="#lockscreen" class="hash-link" aria-label="lockScreen()的直接链接" title="lockScreen()的直接链接">​</a></h2>
+<ul>
+<li>返回 {boolean}</li>
+<li>需要 Android 9 以上</li>
+</ul>
+<p>模拟按键 <strong>电源键</strong> 锁屏</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="dismissnotificationshade">dismissNotificationShade()<a href="#dismissnotificationshade" class="hash-link" aria-label="dismissNotificationShade()的直接链接" title="dismissNotificationShade()的直接链接">​</a></h2>
+<ul>
+<li>返回 {boolean}</li>
+<li>需要 Android 12 以上</li>
+</ul>
+<p>关闭通知栏的操作</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="keycodeheadsethook">keyCodeHeadsetHook()<a href="#keycodeheadsethook" class="hash-link" aria-label="keyCodeHeadsetHook()的直接链接" title="keyCodeHeadsetHook()的直接链接">​</a></h2>
+<ul>
+<li>返回 {boolean}</li>
+<li>需要 Android 12 以上</li>
+</ul>
+<p>发送 KEYCODE_HEADSETHOOK KeyEvent 的动作，用于接听/挂断通话和播放/停止媒体</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="accessibilityshortcut">accessibilityShortcut()<a href="#accessibilityshortcut" class="hash-link" aria-label="accessibilityShortcut()的直接链接" title="accessibilityShortcut()的直接链接">​</a></h2>
+<ul>
+<li>返回 {boolean}</li>
+<li>需要 Android 12 以上</li>
+</ul>
+<p>触发辅助功能快捷方式的操作。此快捷方式有一个硬件触发器并且可以通过按住两个音量键来激活。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="accessibilitybuttonchooser">accessibilityButtonChooser()<a href="#accessibilitybuttonchooser" class="hash-link" aria-label="accessibilityButtonChooser()的直接链接" title="accessibilityButtonChooser()的直接链接">​</a></h2>
+<ul>
+<li>返回 {boolean}</li>
+<li>需要 Android 12 以上</li>
+</ul>
+<p>调出辅助功能按钮的选择器菜单的操作</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="accessibilitybutton">accessibilityButton()<a href="#accessibilitybutton" class="hash-link" aria-label="accessibilityButton()的直接链接" title="accessibilityButton()的直接链接">​</a></h2>
+<ul>
+<li>返回 {boolean}</li>
+<li>需要 Android 12 以上</li>
+</ul>
+<p>触发辅助功能按钮的操作</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="accessibilityallapps">accessibilityAllApps()<a href="#accessibilityallapps" class="hash-link" aria-label="accessibilityAllApps()的直接链接" title="accessibilityAllApps()的直接链接">​</a></h2>
+<ul>
+<li>返回 {boolean}</li>
+<li>需要 Android 12 以上</li>
+</ul>
+<p>显示 Launcher（启动器） 的所有应用的操作。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="home-1">Home()<a href="#home-1" class="hash-link" aria-label="Home()的直接链接" title="Home()的直接链接">​</a></h2>
+<p>模拟按下 Home 键。
+此函数依赖于 root 权限。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="back-1">Back()<a href="#back-1" class="hash-link" aria-label="Back()的直接链接" title="Back()的直接链接">​</a></h2>
+<p>模拟按下返回键。
+此函数依赖于 root 权限。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="power">Power()<a href="#power" class="hash-link" aria-label="Power()的直接链接" title="Power()的直接链接">​</a></h2>
+<p>模拟按下电源键。
+此函数依赖于 root 权限。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="menu">Menu()<a href="#menu" class="hash-link" aria-label="Menu()的直接链接" title="Menu()的直接链接">​</a></h2>
+<p>模拟按下菜单键。
+此函数依赖于 root 权限。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="volumeup">VolumeUp()<a href="#volumeup" class="hash-link" aria-label="VolumeUp()的直接链接" title="VolumeUp()的直接链接">​</a></h2>
+<p>按下音量上键。
+此函数依赖于 root 权限。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="volumedown">VolumeDown()<a href="#volumedown" class="hash-link" aria-label="VolumeDown()的直接链接" title="VolumeDown()的直接链接">​</a></h2>
+<p>按键音量上键。
+此函数依赖于 root 权限。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="camera">Camera()<a href="#camera" class="hash-link" aria-label="Camera()的直接链接" title="Camera()的直接链接">​</a></h2>
+<p>模拟按下照相键。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="up">Up()<a href="#up" class="hash-link" aria-label="Up()的直接链接" title="Up()的直接链接">​</a></h2>
+<p>模拟按下物理按键上。
+此函数依赖于 root 权限。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="down">Down()<a href="#down" class="hash-link" aria-label="Down()的直接链接" title="Down()的直接链接">​</a></h2>
+<p>模拟按下物理按键下。
+此函数依赖于 root 权限。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="left">Left()<a href="#left" class="hash-link" aria-label="Left()的直接链接" title="Left()的直接链接">​</a></h2>
+<p>模拟按下物理按键左。
+此函数依赖于 root 权限。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="right">Right()<a href="#right" class="hash-link" aria-label="Right()的直接链接" title="Right()的直接链接">​</a></h2>
+<p>模拟按下物理按键右。
+此函数依赖于 root 权限。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="ok">OK()<a href="#ok" class="hash-link" aria-label="OK()的直接链接" title="OK()的直接链接">​</a></h2>
+<p>模拟按下物理按键确定。
+此函数依赖于 root 权限。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="texttext">Text(text)<a href="#texttext" class="hash-link" aria-label="Text(text)的直接链接" title="Text(text)的直接链接">​</a></h2>
+<ul>
+<li><code>text</code> {string} 要输入的文字，只能为英文或英文符号
+输入文字 text。例如<code>Text(&quot;aaa&quot;);</code></li>
+</ul>
+<h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="keycodecode">KeyCode(code)<a href="#keycodecode" class="hash-link" aria-label="KeyCode(code)的直接链接" title="KeyCode(code)的直接链接">​</a></h2>
+<ul>
+<li><code>code</code> {number} | &lt;String&gt; 要按下的按键的数字代码或名称。参见下表。
+模拟物理按键。例如<code>KeyCode(29)</code>和<code>KeyCode(&quot;KEYCODE_A&quot;)</code>是按下 A 键。</li>
+</ul>
+<h1>附录: KeyCode 对照表</h1>
+<p>KeyCode KeyEvent Value</p>
+<ul>
+<li>KEYCODE_MENU 1</li>
+<li>KEYCODE_SOFT_RIGHT 2</li>
+<li>KEYCODE_HOME 3</li>
+<li>KEYCODE_BACK 4</li>
+<li>KEYCODE_CALL 5</li>
+<li>KEYCODE_ENDCALL 6</li>
+<li>KEYCODE_0 7</li>
+<li>KEYCODE_1 8</li>
+<li>KEYCODE_2 9</li>
+<li>KEYCODE_3 10</li>
+<li>KEYCODE_4 11</li>
+<li>KEYCODE_5 12</li>
+<li>KEYCODE_6 13</li>
+<li>KEYCODE_7 14</li>
+<li>KEYCODE_8 15</li>
+<li>KEYCODE_9 16</li>
+<li>KEYCODE_STAR 17</li>
+<li>KEYCODE_POUND 18</li>
+<li>KEYCODE_DPAD_UP 19</li>
+<li>KEYCODE_DPAD_DOWN 20</li>
+<li>KEYCODE_DPAD_LEFT 21</li>
+<li>KEYCODE_DPAD_RIGHT 22</li>
+<li>KEYCODE_DPAD_CENTER 23</li>
+<li>KEYCODE_VOLUME_UP 24</li>
+<li>KEYCODE_VOLUME_DOWN 25</li>
+<li>KEYCODE_POWER 26</li>
+<li>KEYCODE_CAMERA 27</li>
+<li>KEYCODE_CLEAR 28</li>
+<li>KEYCODE_A 29</li>
+<li>KEYCODE_B 30</li>
+<li>KEYCODE_C 31</li>
+<li>KEYCODE_D 32</li>
+<li>KEYCODE_E 33</li>
+<li>KEYCODE_F 34</li>
+<li>KEYCODE_G 35</li>
+<li>KEYCODE_H 36</li>
+<li>KEYCODE_I 37</li>
+<li>KEYCODE_J 38</li>
+<li>KEYCODE_K 39</li>
+<li>KEYCODE_L 40</li>
+<li>KEYCODE_M 41</li>
+<li>KEYCODE_N 42</li>
+<li>KEYCODE_O 43</li>
+<li>KEYCODE_P 44</li>
+<li>KEYCODE_Q 45</li>
+<li>KEYCODE_R 46</li>
+<li>KEYCODE_S 47</li>
+<li>KEYCODE_T 48</li>
+<li>KEYCODE_U 49</li>
+<li>KEYCODE_V 50</li>
+<li>KEYCODE_W 51</li>
+<li>KEYCODE_X 52</li>
+<li>KEYCODE_Y 53</li>
+<li>KEYCODE_Z 54</li>
+<li>KEYCODE_COMMA 55</li>
+<li>KEYCODE_PERIOD 56</li>
+<li>KEYCODE_ALT_LEFT 57</li>
+<li>KEYCODE_ALT_RIGHT 58</li>
+<li>KEYCODE_SHIFT_LEFT 59</li>
+<li>KEYCODE_SHIFT_RIGHT 60</li>
+<li>KEYCODE_TAB 61</li>
+<li>KEYCODE_SPACE 62</li>
+<li>KEYCODE_SYM 63</li>
+<li>KEYCODE_EXPLORER 64</li>
+<li>KEYCODE_ENVELOPE 65</li>
+<li>KEYCODE_ENTER 66</li>
+<li>KEYCODE_DEL 67</li>
+<li>KEYCODE_GRAVE 68</li>
+<li>KEYCODE_MINUS 69</li>
+<li>KEYCODE_EQUALS 70</li>
+<li>KEYCODE_LEFT_BRACKET 71</li>
+<li>KEYCODE_RIGHT_BRACKET 72</li>
+<li>KEYCODE_BACKSLASH 73</li>
+<li>KEYCODE_SEMICOLON 74</li>
+<li>KEYCODE_APOSTROPHE 75</li>
+<li>KEYCODE_SLASH 76</li>
+<li>KEYCODE_AT 77</li>
+<li>KEYCODE_NUM 78</li>
+<li>KEYCODE_HEADSETHOOK 79</li>
+<li>KEYCODE_FOCUS 80</li>
+<li>KEYCODE_PLUS 81</li>
+<li>KEYCODE_MENU 82</li>
+<li>KEYCODE_NOTIFICATION 83</li>
+<li>KEYCODE_SEARCH 84</li>
+<li>TAG<em>LAST</em> KEYCODE 85</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/aiselp/AutoxDoc/tree/main/docs/rhino/base/keys.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/rhino/base/http"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">HTTP 网络请求</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/rhino/base/mqtt"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">MQTT</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#back" class="table-of-contents__link toc-highlight">back()</a></li><li><a href="#home" class="table-of-contents__link toc-highlight">home()</a></li><li><a href="#powerdialog" class="table-of-contents__link toc-highlight">powerDialog()</a></li><li><a href="#notifications" class="table-of-contents__link toc-highlight">notifications()</a></li><li><a href="#quicksettings" class="table-of-contents__link toc-highlight">quickSettings()</a></li><li><a href="#recents" class="table-of-contents__link toc-highlight">recents()</a></li><li><a href="#splitscreen" class="table-of-contents__link toc-highlight">splitScreen()</a></li><li><a href="#takescreenshot" class="table-of-contents__link toc-highlight">takeScreenshot()</a></li><li><a href="#lockscreen" class="table-of-contents__link toc-highlight">lockScreen()</a></li><li><a href="#dismissnotificationshade" class="table-of-contents__link toc-highlight">dismissNotificationShade()</a></li><li><a href="#keycodeheadsethook" class="table-of-contents__link toc-highlight">keyCodeHeadsetHook()</a></li><li><a href="#accessibilityshortcut" class="table-of-contents__link toc-highlight">accessibilityShortcut()</a></li><li><a href="#accessibilitybuttonchooser" class="table-of-contents__link toc-highlight">accessibilityButtonChooser()</a></li><li><a href="#accessibilitybutton" class="table-of-contents__link toc-highlight">accessibilityButton()</a></li><li><a href="#accessibilityallapps" class="table-of-contents__link toc-highlight">accessibilityAllApps()</a></li><li><a href="#home-1" class="table-of-contents__link toc-highlight">Home()</a></li><li><a href="#back-1" class="table-of-contents__link toc-highlight">Back()</a></li><li><a href="#power" class="table-of-contents__link toc-highlight">Power()</a></li><li><a href="#menu" class="table-of-contents__link toc-highlight">Menu()</a></li><li><a href="#volumeup" class="table-of-contents__link toc-highlight">VolumeUp()</a></li><li><a href="#volumedown" class="table-of-contents__link toc-highlight">VolumeDown()</a></li><li><a href="#camera" class="table-of-contents__link toc-highlight">Camera()</a></li><li><a href="#up" class="table-of-contents__link toc-highlight">Up()</a></li><li><a href="#down" class="table-of-contents__link toc-highlight">Down()</a></li><li><a href="#left" class="table-of-contents__link toc-highlight">Left()</a></li><li><a href="#right" class="table-of-contents__link toc-highlight">Right()</a></li><li><a href="#ok" class="table-of-contents__link toc-highlight">OK()</a></li><li><a href="#texttext" class="table-of-contents__link toc-highlight">Text(text)</a></li><li><a href="#keycodecode" class="table-of-contents__link toc-highlight">KeyCode(code)</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/rhino/documentation">rhino api文档(v6)</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/nodejs/intro">nodejs api文档(v7)</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="http://www.autoxjs.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">交流社区<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://t.me/+bkx23tdbM6U3N2M1" target="_blank" rel="noopener noreferrer" class="footer__link-item">Telegram<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/aiselp/AutoX/" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 My Project, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
